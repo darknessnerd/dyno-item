@@ -1,0 +1,90 @@
+.drag-cancel:hover {
+  cursor: not-allowed;
+}
+.drag-handle, .drag-cancel {
+  padding: 6px;
+  margin: 6px;
+  background-color: #CCC;
+  border: 2px solid;
+}
+
+.vdr {
+  border: 1px dashed lightgreen;
+  touch-action: none;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.active{
+  border: 1px solid lime;
+}
+
+.dragging {
+  border: 1px dashed lime !important;
+}
+
+
+.handle {
+  box-sizing: border-box;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #EEE;
+  border: 1px solid #333;
+  border-radius: 50%;
+  z-index: 999;
+}
+.handle-tl {
+  top: -8px;
+  left: -8px;
+  cursor: nw-resize;
+}
+.handle-tm {
+  top: -8px;
+  left: 50%;
+  margin-left: -5px;
+  cursor: n-resize;
+}
+.handle-tr {
+  top: -8px;
+  right: -8px;
+  cursor: ne-resize;
+}
+.handle-ml {
+  top: 50%;
+  margin-top: -5px;
+  left: -8px;
+  cursor: w-resize;
+}
+.handle-mr {
+  top: 50%;
+  margin-top: -5px;
+  right: -8px;
+  cursor: e-resize;
+}
+.handle-bl {
+  bottom: -8px;
+  left: -8px;
+  cursor: sw-resize;
+}
+.handle-bm {
+  bottom: -8px;
+  left: 50%;
+  margin-left: -5px;
+  cursor: s-resize;
+}
+.handle-br {
+  bottom: -8px;
+  right: -8px;
+  cursor: se-resize;
+}
+@media only screen and (max-width: 768px) {
+  [class*="handle-"]:before {
+    content: '';
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    top: -8px;
+    position: absolute;
+  }
+}
