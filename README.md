@@ -1,5 +1,5 @@
 # dyno-item
-
+[![Build Status](https://www.travis-ci.com/darknessnerd/dyno-item.svg?branch=main)](https://www.travis-ci.com/darknessnerd/dyno-item)
 ## Project setup
 ```
 npm install
