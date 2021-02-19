@@ -42,9 +42,7 @@ export default function useResize({
       // eslint-disable-next-line no-param-reassign
       heightTouched.value = true;
     }
-    console.log(tmpDeltaX, tmpDeltaY);
     const [deltaX, deltaY] = snapToGrid(props.grid, tmpDeltaX, tmpDeltaY, props.scale);
-    console.log(deltaX, deltaY);
     if (handleFiltered.value.includes('b')) {
       bottomTmp = restrictToBounds(
         mouseClickPosition.value.bottom + deltaY,

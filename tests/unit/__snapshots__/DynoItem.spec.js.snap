@@ -160,6 +160,7 @@ VueWrapper {
       "bl",
       "ml",
     ],
+    "aspectFactor": 1,
     "axis": "both",
     "className": "vdr",
     "classNameActive": "active",
@@ -199,6 +200,9 @@ VueWrapper {
     ],
     "h": 200,
     "handleDown": [Function],
+    "handleStyle": Object {
+      "display": "none",
+    },
     "handleTouchDown": [Function],
     "handles": Array [
       "tl",

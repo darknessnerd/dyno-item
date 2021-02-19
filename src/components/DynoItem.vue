@@ -15,7 +15,7 @@
       v-for="handle in actualHandles"
       :key="handle"
       :class="[classNameHandle, classNameHandle + '-' + handle]"
-      :style="{display: enabled ? 'block' : 'none'}"
+      :style="handleStyle"
       :data-test="handle"
       @mousedown.stop.prevent="handleDown(handle, $event)"
       @touchstart.stop.prevent="handleTouchDown(handle, $event)">
@@ -365,6 +365,9 @@ export default {
       addEvent(document.documentElement, 'touchend touchcancel', deselect);
       addEvent(window, 'resize', checkParentSize);
     });
+    const handleStyle = computed(() => ({
+      display: enabled.value ? 'block' : 'none',
+    }));
     const style = computed(() => ({
       transform: `translate(${domRect.left}px, ${domRect.top}px)`,
       '-webkit-transition': 'transform 0s ease-in-out',
@@ -418,8 +421,10 @@ export default {
       root,
       style,
       contentStyle,
+      handleStyle,
       enabled,
       content,
+      aspectFactor,
     };
   },
 };
