@@ -22,6 +22,7 @@ VueWrapper {
         
         <div
           class="handle handle-tl"
+          data-test="tl"
           style="display: none;"
         >
           
@@ -29,6 +30,7 @@ VueWrapper {
         </div>
         <div
           class="handle handle-tm"
+          data-test="tm"
           style="display: none;"
         >
           
@@ -36,6 +38,7 @@ VueWrapper {
         </div>
         <div
           class="handle handle-tr"
+          data-test="tr"
           style="display: none;"
         >
           
@@ -43,6 +46,7 @@ VueWrapper {
         </div>
         <div
           class="handle handle-mr"
+          data-test="mr"
           style="display: none;"
         >
           
@@ -50,6 +54,7 @@ VueWrapper {
         </div>
         <div
           class="handle handle-br"
+          data-test="br"
           style="display: none;"
         >
           
@@ -57,6 +62,7 @@ VueWrapper {
         </div>
         <div
           class="handle handle-bm"
+          data-test="bm"
           style="display: none;"
         >
           
@@ -64,6 +70,7 @@ VueWrapper {
         </div>
         <div
           class="handle handle-bl"
+          data-test="bl"
           style="display: none;"
         >
           
@@ -71,6 +78,7 @@ VueWrapper {
         </div>
         <div
           class="handle handle-ml"
+          data-test="ml"
           style="display: none;"
         >
           
@@ -222,6 +230,7 @@ VueWrapper {
       
       <div
         class="handle handle-tl"
+        data-test="tl"
         style="display: none;"
       >
         
@@ -229,6 +238,7 @@ VueWrapper {
       </div>
       <div
         class="handle handle-tm"
+        data-test="tm"
         style="display: none;"
       >
         
@@ -236,6 +246,7 @@ VueWrapper {
       </div>
       <div
         class="handle handle-tr"
+        data-test="tr"
         style="display: none;"
       >
         
@@ -243,6 +254,7 @@ VueWrapper {
       </div>
       <div
         class="handle handle-mr"
+        data-test="mr"
         style="display: none;"
       >
         
@@ -250,6 +262,7 @@ VueWrapper {
       </div>
       <div
         class="handle handle-br"
+        data-test="br"
         style="display: none;"
       >
         
@@ -257,6 +270,7 @@ VueWrapper {
       </div>
       <div
         class="handle handle-bm"
+        data-test="bm"
         style="display: none;"
       >
         
@@ -264,6 +278,7 @@ VueWrapper {
       </div>
       <div
         class="handle handle-bl"
+        data-test="bl"
         style="display: none;"
       >
         
@@ -271,6 +286,7 @@ VueWrapper {
       </div>
       <div
         class="handle handle-ml"
+        data-test="ml"
         style="display: none;"
       >
         

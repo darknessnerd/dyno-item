@@ -76,7 +76,7 @@
 <script>
 import { computed, ref } from 'vue';
 import DynoItem from '@/components/DynoItem.vue';
-// TODO - resize window
+
 export default {
   name: 'layout-composer',
   components: { DynoItem },
@@ -88,7 +88,7 @@ export default {
   setup() {
     const onDragStart = () => { };
     const onDragMove = () => { };
-    const onActivate = (item) => { console.log(item); };
+    const onActivate = () => {};
     const grid = ref([1, 1]);
     const scale = ref(1);
     const disableUserSelect = ref(false);

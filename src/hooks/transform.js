@@ -2,7 +2,26 @@ import {
   calcDragLimits, calcResizeLimits, restrictToBounds, snapToGrid,
 } from '@/utils/bounds';
 import { computeHeight, computeWidth, getBoundSize } from '@/utils/dom';
+import { watch } from 'vue';
 
+/**
+ *
+ * When the item props changes:
+ * x - move horizontally
+ * y - move vertically
+ * w - change width
+ * h - change the height
+ *
+ *
+ * @param props
+ * @param resizing
+ * @param dragging
+ * @param domRect
+ * @param aspectFactor
+ * @param parentWidth
+ * @param parentHeight
+ * @param content
+ */
 export default function useTransform({
   props,
   resizing,
@@ -13,10 +32,7 @@ export default function useTransform({
   parentHeight,
   content,
 }) {
-  const changeWidth = (val) => {
-    if (resizing.value || dragging.value) {
-      return;
-    }
+  const updateBounds = () => {
     if (props.parent) {
       // eslint-disable-next-line no-param-reassign
       domRect.bounds = calcResizeLimits(
@@ -27,6 +43,24 @@ export default function useTransform({
         parentHeight.value,
       );
     }
+  };
+  const updateDomRect = (rightTmp, bottomTmp) => {
+    const widthTmp = computeWidth(parentWidth.value, domRect.left, rightTmp);
+    const heightTmp = computeHeight(parentHeight.value, domRect.top, bottomTmp);
+    // eslint-disable-next-line no-param-reassign
+    domRect.right = rightTmp;
+    // eslint-disable-next-line no-param-reassign
+    domRect.bottom = bottomTmp;
+    // eslint-disable-next-line no-param-reassign
+    domRect.width = widthTmp;
+    // eslint-disable-next-line no-param-reassign
+    domRect.height = heightTmp;
+  };
+  const changeWidth = (val) => {
+    if (resizing.value || dragging.value) {
+      return;
+    }
+    updateBounds();
     let newVal = val;
     // should calculate with scale 1.
     if (val === 'auto') {
@@ -45,31 +79,13 @@ export default function useTransform({
     if (props.lockAspectRatio) {
       bottomTmp = domRect.bottom - (domRect.right - rightTmp) / aspectFactor.value;
     }
-    const widthTmp = computeWidth(parentWidth.value, domRect.left, rightTmp);
-    const heightTmp = computeHeight(parentHeight.value, domRect.top, bottomTmp);
-    // eslint-disable-next-line no-param-reassign
-    domRect.right = rightTmp;
-    // eslint-disable-next-line no-param-reassign
-    domRect.bottom = bottomTmp;
-    // eslint-disable-next-line no-param-reassign
-    domRect.width = widthTmp;
-    // eslint-disable-next-line no-param-reassign
-    domRect.height = heightTmp;
+    updateDomRect(rightTmp, bottomTmp);
   };
   const changeHeight = (val) => {
     if (resizing.value || dragging.value) {
       return;
     }
-    if (props.parent) {
-      // eslint-disable-next-line no-param-reassign
-      domRect.bounds = calcResizeLimits(
-        props.minWidth, props.minHeight, props.maxWidth, props.maxHeight, props.grid,
-        domRect.width, domRect.height, domRect.top, domRect.bottom, domRect.left, domRect.right,
-        props.lockAspectRatio, aspectFactor.value, props.parent,
-        parentWidth.value,
-        parentHeight.value,
-      );
-    }
+    updateBounds();
     let newVal = val;
     // should calculate with scale 1.
     if (val === 'auto') {
@@ -87,16 +103,7 @@ export default function useTransform({
     if (props.lockAspectRatio) {
       rightTmp = domRect.right - (domRect.bottom - bottomTmp) * aspectFactor.value;
     }
-    const widthTmp = computeWidth(parentWidth.value, domRect.left, rightTmp);
-    const heightTmp = computeHeight(parentHeight.value, domRect.top, bottomTmp);
-    // eslint-disable-next-line no-param-reassign
-    domRect.right = rightTmp;
-    // eslint-disable-next-line no-param-reassign
-    domRect.bottom = bottomTmp;
-    // eslint-disable-next-line no-param-reassign
-    domRect.width = widthTmp;
-    // eslint-disable-next-line no-param-reassign
-    domRect.height = heightTmp;
+    updateDomRect(rightTmp, bottomTmp);
   };
 
   const moveHorizontally = (val) => {
@@ -142,7 +149,19 @@ export default function useTransform({
     // eslint-disable-next-line no-param-reassign
     domRect.bottom = parentHeight.value - domRect.height - domRect.top;
   };
-  return {
-    changeHeight, changeWidth, moveVertically, moveHorizontally,
-  };
+
+  // Transformations
+
+  watch(() => props.y, (y) => {
+    moveVertically(y);
+  });
+  watch(() => props.x, (x) => {
+    moveHorizontally(x);
+  });
+  watch(() => props.w, (newW) => {
+    changeWidth(newW);
+  });
+  watch(() => props.h, (newH) => {
+    changeHeight(newH);
+  });
 }

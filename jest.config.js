@@ -12,11 +12,11 @@ module.exports = {
   ],
   collectCoverage: true,
   collectCoverageFrom: [
-    '**/*.{js,vue}',
+    'src/**/*.{js,vue}',
     '!**/node_modules/**',
     '!<rootDir>/dist/**',
     '!<rootDir>/src/plugins/**',
     '!<rootDir>/tests/unit/**',
   ],
-  coverageReporters: ['html', 'lcov', 'text-summary'],
+  coverageReporters: ['lcov', 'text', 'text-summary'],
 };

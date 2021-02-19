@@ -16,6 +16,7 @@
       :key="handle"
       :class="[classNameHandle, classNameHandle + '-' + handle]"
       :style="{display: enabled ? 'block' : 'none'}"
+      :data-test="handle"
       @mousedown.stop.prevent="handleDown(handle, $event)"
       @touchstart.stop.prevent="handleTouchDown(handle, $event)">
       <slot :name="handle"></slot>
@@ -282,7 +283,7 @@ export default {
         maxBottom: null,
       };
     };
-
+    resetBoundsAndMouseState();
     const {
       elementMouseDown, elementTouchDown, dragging,
     } = useDrag({
@@ -311,10 +312,10 @@ export default {
       eventsFor,
       resetBoundsAndMouseState,
     });
-
-    const {
-      moveHorizontally, moveVertically, changeHeight, changeWidth,
-    } = useTransform({
+    /**
+     * Enable transformations for props x,y and w,h
+     */
+    useTransform({
       props,
       resizing,
       dragging,
@@ -325,7 +326,7 @@ export default {
       content,
     });
     const deselect = (e) => {
-      const target = e.target || e.srcElement;
+      const { target } = e;
       const regex = new RegExp(`${props.className}-([trmbl]{2})`, '');
       if (!root.value.contains(target) && !regex.test(target.className)) {
         if (enabled.value && !props.preventDeactivation) {
@@ -385,9 +386,7 @@ export default {
       removeEvent(document.documentElement, 'touchend touchcancel', deselect);
       removeEvent(window, 'resize', checkParentSize);
     });
-    watch(() => props.y, (y) => {
-      moveVertically(y);
-    });
+
     watch(() => props.lockAspectRatio, (val) => {
       if (val) {
         aspectFactor.value = domRect.width / domRect.height;
@@ -396,12 +395,6 @@ export default {
       }
     });
 
-    watch(() => props.x, (x) => {
-      moveHorizontally(x);
-    });
-    watch(() => props.w, (newW) => {
-      changeWidth(newW);
-    });
     watch(() => props.active, (val) => {
       enabled.value = val;
       if (val) {
@@ -410,9 +403,7 @@ export default {
         context.emit('deactivated');
       }
     });
-    watch(() => props.h, (newH) => {
-      changeHeight(newH);
-    });
+
     return {
       // Dragging feature
       elementMouseDown,
