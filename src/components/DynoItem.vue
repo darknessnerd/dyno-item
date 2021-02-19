@@ -216,10 +216,6 @@ export default {
       type: Boolean,
       default: true,
     },
-    item: {
-      type: Object,
-      required: true,
-    },
     preventDeactivation: {
       type: Boolean,
       default: false,
@@ -238,11 +234,11 @@ export default {
     // Check win and height
     // eslint-disable-next-line
     if (props.maxWidth && ( props.minWidth > props.maxWidth )) {
-      console.warn('[Vdr warn]: Invalid prop: minWidth cannot be greater than maxWidth');
+      console.warn('[dyno-item warn]: Invalid prop: minWidth cannot be greater than maxWidth');
     }
     // eslint-disable-next-line
     if (props.maxWidth && ( props.minHeight > props.maxHeight )) {
-      console.warn('[Vdr warn]: Invalid prop: minHeight cannot be greater than maxHeight');
+      console.warn('[dyno-item warn]: Invalid prop: minHeight cannot be greater than maxHeight');
     }
     const domRect = reactive({
       bounds: {
@@ -355,8 +351,6 @@ export default {
         root.value.ondragstart = () => false;
       }
       [parentWidth.value, parentHeight.value] = getParentSize(root.value, props.parent);
-      console.log(`${parentWidth.value} - ${parentHeight.value}`);
-      console.log(content.value);
       [domRect.width, domRect.height] = getBoundSize(content.value.children);
       aspectFactor.value = (props.w !== 'auto' ? props.w : domRect.width) / (props.h !== 'auto' ? props.h : domRect.height);
       domRect.width = props.w !== 'auto' ? props.w : domRect.width;

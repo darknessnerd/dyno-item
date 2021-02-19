@@ -1,0 +1,307 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DynoItem.vue renders correctly 1`] = `
+VueWrapper {
+  "__app": Object {
+    "_component": Object {
+      "__emits": Object {},
+      "__props": Array [
+        Object {},
+        Array [],
+      ],
+      "name": "VTU_ROOT",
+      "render": [Function],
+    },
+    "_container": <div
+      data-v-app=""
+    >
+      <div
+        class="draggable resizable vdr"
+        style="transform: translate(0px, 0px); z-index: auto; position: absolute; user-select: auto;"
+      >
+        
+        <div
+          class="handle handle-tl"
+          style="display: none;"
+        >
+          
+          
+        </div>
+        <div
+          class="handle handle-tm"
+          style="display: none;"
+        >
+          
+          
+        </div>
+        <div
+          class="handle handle-tr"
+          style="display: none;"
+        >
+          
+          
+        </div>
+        <div
+          class="handle handle-mr"
+          style="display: none;"
+        >
+          
+          
+        </div>
+        <div
+          class="handle handle-br"
+          style="display: none;"
+        >
+          
+          
+        </div>
+        <div
+          class="handle handle-bm"
+          style="display: none;"
+        >
+          
+          
+        </div>
+        <div
+          class="handle handle-bl"
+          style="display: none;"
+        >
+          
+          
+        </div>
+        <div
+          class="handle handle-ml"
+          style="display: none;"
+        >
+          
+          
+        </div>
+        
+        <div
+          style="position: absolute; overflow: auto; user-select: auto;"
+        >
+          
+          
+        </div>
+      </div>
+    </div>,
+    "_context": Object {
+      "app": [Circular],
+      "components": Object {
+        "transition": Object {
+          "name": "transition",
+          "props": undefined,
+          "render": [Function],
+        },
+        "transition-group": Object {
+          "name": "transition-group",
+          "props": undefined,
+          "render": [Function],
+        },
+      },
+      "config": Object {
+        "errorHandler": undefined,
+        "globalProperties": Object {},
+        "isCustomElement": [Function],
+        "isNativeTag": [Function],
+        "optionMergeStrategies": Object {},
+        "performance": false,
+        "warnHandler": undefined,
+      },
+      "directives": Object {},
+      "mixins": Array [
+        Object {
+          "__emits": null,
+          "__props": Array [],
+          "beforeCreate": [Function],
+        },
+      ],
+      "provides": Object {},
+      "reload": [Function],
+    },
+    "_props": null,
+    "_uid": 0,
+    "component": [Function],
+    "config": Object {
+      "errorHandler": undefined,
+      "globalProperties": Object {},
+      "isCustomElement": [Function],
+      "isNativeTag": [Function],
+      "optionMergeStrategies": Object {},
+      "performance": false,
+      "warnHandler": undefined,
+    },
+    "directive": [Function],
+    "mixin": [Function],
+    "mount": [Function],
+    "provide": [Function],
+    "unmount": [Function],
+    "use": [Function],
+    "version": "3.0.5",
+  },
+  "__setProps": [Function],
+  "componentVM": Object {
+    "active": false,
+    "actualHandles": Array [
+      "tl",
+      "tm",
+      "tr",
+      "mr",
+      "br",
+      "bm",
+      "bl",
+      "ml",
+    ],
+    "axis": "both",
+    "className": "vdr",
+    "classNameActive": "active",
+    "classNameDraggable": "draggable",
+    "classNameDragging": "dragging",
+    "classNameHandle": "handle",
+    "classNameResizable": "resizable",
+    "classNameResizing": "resizing",
+    "content": <div
+      style="position: absolute; overflow: auto; user-select: auto;"
+    >
+      
+      
+    </div>,
+    "contentStyle": Object {
+      "MozUserSelect": "auto",
+      "MsUserSelect": "auto",
+      "WebkitUserSelect": "auto",
+      "height": "200px",
+      "overflow": "auto",
+      "position": "absolute",
+      "userSelect": "auto",
+      "width": "200px",
+    },
+    "disableUserSelect": true,
+    "dragCancel": null,
+    "dragHandle": null,
+    "draggable": true,
+    "dragging": false,
+    "elementMouseDown": [Function],
+    "elementTouchDown": [Function],
+    "enableNativeDrag": false,
+    "enabled": false,
+    "grid": Array [
+      1,
+      1,
+    ],
+    "h": 200,
+    "handleDown": [Function],
+    "handleTouchDown": [Function],
+    "handles": Array [
+      "tl",
+      "tm",
+      "tr",
+      "mr",
+      "br",
+      "bm",
+      "bl",
+      "ml",
+    ],
+    "lockAspectRatio": false,
+    "maxHeight": null,
+    "maxWidth": null,
+    "minHeight": 0,
+    "minWidth": 0,
+    "onDrag": [Function],
+    "onDragStart": [Function],
+    "onResize": [Function],
+    "onResizeStart": [Function],
+    "parent": false,
+    "preventDeactivation": false,
+    "resizable": true,
+    "resizing": false,
+    "root": <div
+      class="draggable resizable vdr"
+      style="transform: translate(0px, 0px); z-index: auto; position: absolute; user-select: auto;"
+    >
+      
+      <div
+        class="handle handle-tl"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      <div
+        class="handle handle-tm"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      <div
+        class="handle handle-tr"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      <div
+        class="handle handle-mr"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      <div
+        class="handle handle-br"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      <div
+        class="handle handle-bm"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      <div
+        class="handle handle-bl"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      <div
+        class="handle handle-ml"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      
+      <div
+        style="position: absolute; overflow: auto; user-select: auto;"
+      >
+        
+        
+      </div>
+    </div>,
+    "scale": 1,
+    "style": Object {
+      "-webkit-transition": "transform 0s ease-in-out",
+      "MozUserSelect": "auto",
+      "MsUserSelect": "auto",
+      "WebkitUserSelect": "auto",
+      "height": "200px",
+      "position": "absolute",
+      "transform": "translate(0px, 0px)",
+      "userSelect": "auto",
+      "width": "200px",
+      "zIndex": "auto",
+    },
+    "w": 200,
+    "x": 0,
+    "y": 0,
+    "z": "auto",
+  },
+  "rootVM": Object {},
+}
+`;
