@@ -30,19 +30,6 @@ describe('DynoItem.vue', () => {
     document.documentElement.dispatchEvent(event);
     expect(wrapper.emitted().deactivated[0]).toEqual([]);
   });
-  it('active when active props change', async () => {
-    const wrapper = shallowMount(DynoItem);
-    await wrapper.setProps({ active: true });
-    expect(wrapper.emitted().activated[0]).toEqual([]);
-    expect(wrapper.vm.handleStyle).toStrictEqual({
-      display: 'block',
-    });
-    await wrapper.setProps({ active: false });
-    expect(wrapper.emitted().deactivated[0]).toEqual([]);
-    expect(wrapper.vm.handleStyle).toStrictEqual({
-      display: 'none',
-    });
-  });
   it('aspectRation change when lockAspectRatio props change', async () => {
     const wrapper = shallowMount(DynoItem);
     await wrapper.setProps({ lockAspectRatio: true });

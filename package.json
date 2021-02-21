@@ -7,11 +7,13 @@
     "dist/"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve",
     "build": "rollup -c rollup.config.js",
-    "test:unit": "vue-cli-service test:unit",
+    "test:unit": "vue-cli-service test:unit --runInBand",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -21,12 +23,20 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.17",
     "@rollup/plugin-alias": "^3.1.2",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-buble": "^0.21.3",
     "@rollup/plugin-commonjs": "^17.1.0",
     "@rollup/plugin-node-resolve": "^11.2.0",
     "@rollup/plugin-replace": "^2.3.4",
+    "@storybook/addon-actions": "^6.2.0-alpha.32",
+    "@storybook/addon-essentials": "^6.2.0-alpha.32",
+    "@storybook/addon-jest": "^6.2.0-alpha.33",
+    "@storybook/addon-links": "^6.2.0-alpha.32",
+    "@storybook/addons": "^6.2.0-alpha.32",
+    "@storybook/theming": "^6.2.0-alpha.32",
+    "@storybook/vue3": "^6.2.0-alpha.32",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-e2e-nightwatch": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
@@ -37,6 +47,7 @@
     "@vue/eslint-config-airbnb": "^5.0.2",
     "@vue/test-utils": "^2.0.0-0",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
     "chromedriver": "87",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
@@ -49,6 +60,7 @@
     "rollup-plugin-vue": "^6.0.0",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
-    "vue-jest": "^5.0.0-0"
+    "vue-jest": "^5.0.0-0",
+    "vue-loader": "^16.1.2"
   }
 }

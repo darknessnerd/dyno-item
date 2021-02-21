@@ -1,5 +1,6 @@
 <template>
   <div
+    data-test="root"
     ref="root"
     :style="style"
     :class="[{
@@ -66,13 +67,54 @@ export default {
     'resize-stop',
   ],
   props: {
-    className: {
-      type: String,
-      default: 'vdr',
+    // Component controls
+    /**
+     * Active state for the component, this props when change emit activated and deactivated event
+     */
+    active: {
+      type: Boolean,
+      default: false,
     },
+    /**
+     * Draggable state for the component.
+     */
+    draggable: {
+      type: Boolean,
+      default: true,
+    },
+    /**
+     * UserSelect state for the component.
+     */
     disableUserSelect: {
       type: Boolean,
       default: true,
+    },
+    /**
+     * Keep the component ever active
+     */
+    preventDeactivation: {
+      type: Boolean,
+      default: false,
+    },
+    enableNativeDrag: {
+      type: Boolean,
+      default: false,
+    },
+    lockAspectRatio: {
+      type: Boolean,
+      default: false,
+    },
+    parent: {
+      type: Boolean,
+      default: false,
+    },
+    resizable: {
+      type: Boolean,
+      default: true,
+    },
+    className: {
+      type: String,
+      default: 'vdr',
     },
     classNameDraggable: {
       type: String,
@@ -102,22 +144,6 @@ export default {
       type: String,
       default: null,
     },
-    draggable: {
-      type: Boolean,
-      default: true,
-    },
-    active: {
-      type: Boolean,
-      default: false,
-    },
-    lockAspectRatio: {
-      type: Boolean,
-      default: false,
-    },
-    enableNativeDrag: {
-      type: Boolean,
-      default: false,
-    },
     onResizeStart: {
       type: Function,
       default: () => true,
@@ -139,10 +165,6 @@ export default {
         }
         return val.length === 2 && val[0] > 0 && val[1] > 0;
       },
-    },
-    parent: {
-      type: Boolean,
-      default: false,
     },
     onDragStart: {
       type: Function,
@@ -212,14 +234,6 @@ export default {
         const s = new Set(['tl', 'tm', 'tr', 'mr', 'br', 'bm', 'bl', 'ml']);
         return new Set(val.filter((h) => s.has(h))).size === val.length;
       },
-    },
-    resizable: {
-      type: Boolean,
-      default: true,
-    },
-    preventDeactivation: {
-      type: Boolean,
-      default: false,
     },
     axis: {
       type: String,
@@ -385,6 +399,7 @@ export default {
       ...(dragging.value && props.disableUserSelect ? userSelectNone : userSelectAuto),
     }));
     onBeforeUnmount(() => {
+      console.log('before unmount');
       removeEvent(document.documentElement, 'mousedown', deselect);
       removeEvent(document.documentElement, 'touchend touchcancel', deselect);
       removeEvent(window, 'resize', checkParentSize);

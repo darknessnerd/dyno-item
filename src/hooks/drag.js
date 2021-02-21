@@ -65,7 +65,9 @@ export default function useDrag({
   };
   const elementDown = (e) => {
     // Check if it's a mouse event
-    if (e instanceof MouseEvent && e.which !== 1) {
+    // Button 0 is the main button: Main button pressed,
+    // usually the left button or the un-initialized state
+    if (e instanceof MouseEvent && e.button !== 0) {
       return;
     }
     // Get the event target
@@ -89,7 +91,6 @@ export default function useDrag({
         // eslint-disable-next-line no-param-reassign
         enabled.value = true;
         context.emit('activated');
-        // TODO - v-model active ???
       }
       if (props.draggable) {
         // eslint-disable-next-line no-param-reassign
@@ -138,7 +139,6 @@ export default function useDrag({
     elementDown(e);
   };
   onBeforeUnmount(() => {
-    console.log('onBeforeUnmount: drag');
     removeEvent(document.documentElement, 'mousemove', move);
     removeEvent(document.documentElement, 'touchmove', move);
   });

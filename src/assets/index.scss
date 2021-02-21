@@ -5,22 +5,11 @@
   box-sizing: border-box;
 }
 
-html{
-  height: 100vh;
+html, body, #root, #root > div {
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
   font-family: sans-serif;
-}
-body{
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-}
-
-#app {
-  flex-grow: 1;
-  flex-shrink: 1;
-  display: flex;
-  flex-flow: row nowrap;
-  overflow: hidden;
 }
 
 .my-class {

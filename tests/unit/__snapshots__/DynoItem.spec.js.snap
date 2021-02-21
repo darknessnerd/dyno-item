@@ -17,6 +17,7 @@ VueWrapper {
     >
       <div
         class="draggable resizable vdr"
+        data-test="root"
         style="transform: translate(0px, 0px); z-index: auto; position: absolute; user-select: auto;"
       >
         
@@ -229,6 +230,7 @@ VueWrapper {
     "resizing": false,
     "root": <div
       class="draggable resizable vdr"
+      data-test="root"
       style="transform: translate(0px, 0px); z-index: auto; position: absolute; user-select: auto;"
     >
       

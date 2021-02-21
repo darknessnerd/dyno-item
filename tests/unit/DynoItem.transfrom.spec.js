@@ -1,19 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
 import DynoItem from '@/components/DynoItem.vue';
+import { baseStyle } from './commons';
 
 describe('DynoItem.transform.vue', () => {
-  const baseStyle = {
-    transform: 'translate(0px, 0px)',
-    '-webkit-transition': 'transform 0s ease-in-out',
-    width: '200px',
-    height: '200px',
-    zIndex: 'auto',
-    position: 'absolute',
-    userSelect: 'auto',
-    MozUserSelect: 'auto',
-    WebkitUserSelect: 'auto',
-    MsUserSelect: 'auto',
-  };
   const triggerResizing = async (wrapper) => {
     await wrapper.find('[data-test="tl"]').trigger('mousedown', {
       button: 0,
