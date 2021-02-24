@@ -28,7 +28,6 @@ export default function useDrag({
     const tmpDeltaX = props.axis && props.axis !== 'y' ? mouseClickPosition.value.mouseX - (e.touches ? e.touches[0].pageX : e.pageX) : 0;
     const tmpDeltaY = props.axis && props.axis !== 'x' ? mouseClickPosition.value.mouseY - (e.touches ? e.touches[0].pageY : e.pageY) : 0;
     const [deltaX, deltaY] = snapToGrid(props.grid, tmpDeltaX, tmpDeltaY, props.scale);
-
     const leftTmp = restrictToBounds(
       mouseClickPosition.value.left - deltaX, domRect.bounds.minLeft, domRect.bounds.maxLeft,
     );

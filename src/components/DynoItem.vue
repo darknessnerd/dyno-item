@@ -39,7 +39,8 @@ import useResize from '@/hooks/resize';
 import {
   addEvent,
   removeEvent,
-  getBoundSize, getParentSize,
+  getBoundSize,
+  getParentSize,
 } from '@/utils/dom';
 
 const userSelectNone = {
@@ -96,15 +97,21 @@ export default {
       type: Boolean,
       default: false,
     },
+    /**
+     * Enable native drag inside the component
+     */
     enableNativeDrag: {
       type: Boolean,
       default: false,
     },
-    lockAspectRatio: {
+    /**
+     * Restrict size and movement to parent element
+     */
+    parent: {
       type: Boolean,
       default: false,
     },
-    parent: {
+    lockAspectRatio: {
       type: Boolean,
       default: false,
     },
@@ -281,7 +288,12 @@ export default {
     const parentWidth = ref(null);
     const aspectFactor = ref(null);
     const enabled = ref(props.active);
-
+    const setNativeDrag = (val) => {
+      // Enable the html5 dragstart event
+      if (!val) {
+        root.value.ondragstart = () => false;
+      }
+    };
     const resetBoundsAndMouseState = () => {
       mouseClickPosition.value = {
         mouseX: 0, mouseY: 0, x: 0, y: 0, w: 0, h: 0,
@@ -355,16 +367,13 @@ export default {
     };
     const checkParentSize = () => {
       if (props.parent) {
-        // TODO understand well
         [parentWidth.value, parentHeight.value] = getParentSize(root.value, props.parent);
-        domRect.right = parentWidth.value - domRect.width - domRect.left;
-        domRect.bottom = parentHeight.value - domRect.height - domRect.top;
+        domRect.left = parentWidth.value - domRect.width - domRect.right;
+        domRect.top = parentHeight.value - domRect.height - domRect.bottom;
       }
     };
     onMounted(() => {
-      if (!props.enableNativeDrag) {
-        root.value.ondragstart = () => false;
-      }
+      setNativeDrag(props.enableNativeDrag);
       [parentWidth.value, parentHeight.value] = getParentSize(root.value, props.parent);
       [domRect.width, domRect.height] = getBoundSize(content.value.children);
       aspectFactor.value = (props.w !== 'auto' ? props.w : domRect.width) / (props.h !== 'auto' ? props.h : domRect.height);
@@ -399,7 +408,6 @@ export default {
       ...(dragging.value && props.disableUserSelect ? userSelectNone : userSelectAuto),
     }));
     onBeforeUnmount(() => {
-      console.log('before unmount');
       removeEvent(document.documentElement, 'mousedown', deselect);
       removeEvent(document.documentElement, 'touchend touchcancel', deselect);
       removeEvent(window, 'resize', checkParentSize);
@@ -412,7 +420,12 @@ export default {
         aspectFactor.value = null;
       }
     });
-
+    watch(() => props.parent, () => {
+      checkParentSize();
+    });
+    watch(() => props.enableNativeDrag, (val) => {
+      setNativeDrag(val);
+    });
     watch(() => props.active, (val) => {
       enabled.value = val;
       if (val) {

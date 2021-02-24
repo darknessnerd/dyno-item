@@ -1,9 +1,11 @@
 import DynoItem from '@/components/DynoItem.vue';
+import controls from './control';
 
 export default {
   title: 'DynoItem/parent',
   component: DynoItem,
   argTypes: {
+    ...controls,
     parent: { control: { type: 'boolean' } },
     className: {
       table: { disable: true },
@@ -22,10 +24,12 @@ const Template = (args) => ({
     return { args };
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<DynoItem :parent="args.parent" >aa</DynoItem>',
+  template: '<DynoItem :parent="args.parent" >'
+    + '<div>You cannot move me or resize me outside my parent</div>'
+    + '</DynoItem>',
 });
 
 export const ParentLimit = Template.bind({});
 ParentLimit.args = {
-  parent: false,
+  parent: true,
 };

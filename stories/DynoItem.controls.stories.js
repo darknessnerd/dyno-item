@@ -27,6 +27,7 @@ const Template = (args) => ({
                   :preventDeactivation="args.preventDeactivation"
                   @activated="args.activated"
                   @deactivated="args.deactivated"
+                  :enable-native-drag="args.enableNativeDrag"
                   @drag-stop="args['drag-stop']"
                   @dragging="args.dragging">${
   args.content
@@ -102,5 +103,24 @@ PreventDeactivation.args = {
   preventDeactivation: true,
   content: '<p>'
     + 'Prevent deactivation when the prop <b>:preventDeactivation</b> is set to true.'
+    + '</p>',
+};
+
+export const EnableNativeDrag = Template.bind({});
+EnableNativeDrag.argTypes = {
+  ...controls,
+  ...{ enableNativeDrag: { control: { type: 'boolean' } } },
+  content: {
+    table: { disable: true },
+  },
+};
+EnableNativeDrag.args = {
+  enableNativeDrag: true,
+  disableUserSelect: false,
+  content: '<p>EnableNativeDrag '
+    + '<b>:enableNativeDrag</b> '
+    + 'is set to true.'
+    + '<br>'
+    + '<img src="./abduction.svg" style="height: 48px; width: 48px;" />'
     + '</p>',
 };

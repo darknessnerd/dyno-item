@@ -167,7 +167,6 @@ export default function useResize({
     handleDown(handle, e);
   };
   onBeforeUnmount(() => {
-    console.log('onBeforeUnmount: resize');
     removeEvent(document.documentElement, 'mouseup', handleUp);
     removeEvent(document.documentElement, 'touchstart', handleUp);
   });

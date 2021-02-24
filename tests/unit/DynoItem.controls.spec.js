@@ -1,7 +1,11 @@
 import { shallowMount } from '@vue/test-utils';
 import DynoItem from '@/components/DynoItem.vue';
 import {
-  baseStyle, triggerDragging, triggerMouseDownOnDocument, triggerMouseUp,
+  baseStyle,
+  triggerDragging,
+  triggerMouseDownOnDocument,
+  triggerMouseUp,
+  triggerOnDragStart,
 } from './commons';
 
 describe('DynoItem.controls.vue', () => {
@@ -91,8 +95,9 @@ describe('DynoItem.controls.vue', () => {
     await triggerMouseDownOnDocument();
     expect(wrapper.emitted()).toEqual({ activated: [[]], 'drag-stop': [[10, 10]], dragging: [[10, 10]] });
   });
-  it('does not deactivated when preventDeactivation it set to false', async () => {
-    await wrapper.setProps({ active: true, preventDeactivation: false });
+  it('enableNativeDrag', async () => {
+    await wrapper.setProps({ enableNativeDrag: true });
+    await triggerOnDragStart(wrapper);
     await triggerDragging(wrapper, true);
     expect(wrapper.emitted()).toEqual({ activated: [[]], dragging: [[10, 10]] });
     await triggerMouseUp(wrapper);

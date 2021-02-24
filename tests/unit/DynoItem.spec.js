@@ -2,12 +2,23 @@ import { shallowMount } from '@vue/test-utils';
 import DynoItem from '@/components/DynoItem.vue';
 
 describe('DynoItem.vue', () => {
+  let wrapper;
+  beforeEach(() => {
+    jest.resetModules();
+    jest.clearAllMocks();
+    const rootElm = document.documentElement;
+    // Remove attributes on root element
+    [...rootElm.attributes].forEach((attr) => rootElm.removeAttribute(attr.name));
+  });
+  afterEach(() => {
+    wrapper.unmount();
+  });
   it('renders correctly', () => {
-    const wrapper = shallowMount(DynoItem);
+    wrapper = shallowMount(DynoItem);
     expect(wrapper).toMatchSnapshot();
   });
   it('it emit activated onMounted', () => {
-    const wrapper = shallowMount(DynoItem, {
+    wrapper = shallowMount(DynoItem, {
       props: { active: true },
     });
     expect(wrapper.emitted().activated[0]).toEqual([]);
@@ -25,13 +36,15 @@ describe('DynoItem.vue', () => {
     });
   });
   it('deselect when mousedown on documentElement', () => {
-    const wrapper = shallowMount(DynoItem);
+    wrapper = shallowMount(DynoItem, {
+      props: { active: true },
+    });
     const event = new window.MouseEvent('mousedown');
     document.documentElement.dispatchEvent(event);
     expect(wrapper.emitted().deactivated[0]).toEqual([]);
   });
   it('aspectRation change when lockAspectRatio props change', async () => {
-    const wrapper = shallowMount(DynoItem);
+    wrapper = shallowMount(DynoItem);
     await wrapper.setProps({ lockAspectRatio: true });
     expect(wrapper.vm.aspectFactor).toStrictEqual(1);
     await wrapper.setProps({ lockAspectRatio: false });

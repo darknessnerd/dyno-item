@@ -11,7 +11,7 @@
     "test:unit": "vue-cli-service test:unit --runInBand",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s ./stories/assets -p 6006",
     "build-storybook": "build-storybook",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },

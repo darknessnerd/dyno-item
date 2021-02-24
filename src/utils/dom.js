@@ -21,10 +21,10 @@ export const addEvent = (el, event, handler) => {
  */
 export function getParentSize(el, hasParent) {
   if (hasParent) {
-    const style = window.getComputedStyle(el.parentNode, null);
+    const domRect = el.parentNode.getBoundingClientRect();
     return [
-      parseInt(style.getPropertyValue('width'), 10),
-      parseInt(style.getPropertyValue('height'), 10),
+      domRect.width,
+      domRect.height,
     ];
   }
   return [null, null];
