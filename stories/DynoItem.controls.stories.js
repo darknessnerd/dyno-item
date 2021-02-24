@@ -23,11 +23,14 @@ const Template = (args) => ({
   template: `<DynoItem
                   :active="args.active"
                   :draggable="args.draggable"
+                  :resizable="args.resizable"
                   :disableUserSelect="args.disableUserSelect"
                   :preventDeactivation="args.preventDeactivation"
                   @activated="args.activated"
                   @deactivated="args.deactivated"
                   :enable-native-drag="args.enableNativeDrag"
+                  @resizing="args.resizing"
+                  @resize-stop="args['resize-stop']"
                   @drag-stop="args['drag-stop']"
                   @dragging="args.dragging">${
   args.content
@@ -46,8 +49,34 @@ Active.argTypes = {
 };
 Active.args = {
   active: false,
+  resizable: false,
   content: '<p>Change the active state from outside the component by providing the <b>:active</b> prop.</p><br/>'
     + 'Event emitted:<ul><li><b>@activated</b></li> <li><b>@deactivated</b></li></ul>',
+};
+
+export const Resizable = Template.bind({});
+Resizable.argTypes = {
+  ...controls,
+  ...{ resizable: { control: { type: 'boolean' } } },
+  activated: { action: 'activated' },
+  deactivated: { action: 'deactivated' },
+  resizing: { action: 'resizing' },
+  'resize-stop': { action: 'resize-stop' },
+  content: {
+    table: { disable: true },
+  },
+};
+Resizable.args = {
+  draggable: false,
+  resizable: true,
+  content: '<p>Change the Resizable state from outside the component by providing the <b>:resizable</b> prop.</p>'
+    + '<br/>'
+    + 'Event emitted:<ul>'
+    + '<li><b>@activated</b></li>'
+    + '<li><b>@deactivated</b></li>'
+    + '<li><b>@resizing</b></li>'
+    + '<li><b>@resize-stop</b></li>'
+    + '</ul>',
 };
 
 export const Draggable = Template.bind({});
@@ -63,7 +92,8 @@ Draggable.argTypes = {
   },
 };
 Draggable.args = {
-  draggable: false,
+  draggable: true,
+  resizable: false,
   content: '<p>Change the Draggable state from outside the component by providing the <b>:draggable</b> prop.</p>'
     + '<br/>'
     + 'Event emitted:<ul>'

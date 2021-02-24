@@ -111,13 +111,16 @@ export default {
       type: Boolean,
       default: false,
     },
-    lockAspectRatio: {
-      type: Boolean,
-      default: false,
-    },
+    /**
+     * Enable or disable element resize
+     */
     resizable: {
       type: Boolean,
       default: true,
+    },
+    lockAspectRatio: {
+      type: Boolean,
+      default: false,
     },
     className: {
       type: String,
