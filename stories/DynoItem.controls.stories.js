@@ -206,3 +206,21 @@ Axis.args = {
     + ' Suitable values are <b>x, y or both</b>.'
     + '</DynoItem>',
 };
+
+export const Handles = Template.bind({});
+Handles.argTypes = {
+  ...controls,
+  handles: {
+    control: {
+      type: 'multi-select',
+      multiple: true,
+      options: ['tl', 'tm', 'tr', 'mr', 'br', 'bm', 'bl', 'ml'],
+    },
+  },
+};
+Handles.args = {
+  handles: [],
+  template: '<DynoItem :active="true" :prevent-deactivation="true" :handles="args.handles">'
+    + '<p>Enable/disable handles.</p>'
+    + '</DynoItem>',
+};
