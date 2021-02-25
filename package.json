@@ -1,6 +1,8 @@
 {
   "name": "dyno-item",
   "version": "0.0.1",
+  "private": false,
+  "author": "Brunino Criniti <crinitib@gmail.com>",
   "main": "dist/dyno-item.common.js",
   "unpkg": "dist/dyno-item.umd.min.js",
   "files": [
@@ -62,5 +64,24 @@
     "typescript": "~3.9.3",
     "vue-jest": "^5.0.0-0",
     "vue-loader": "^16.1.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darknessnerd/dyno-item.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darknessnerd/dyno-item/issues"
+  },
+  "homepage": "https://github.com/darknessnerd/dyno-item",
+  "keywords": [
+    "vue3",
+    "grid",
+    "parent",
+    "dynamic components",
+    "component",
+    "composition api",
+    "dragabble",
+    "resizable"
+  ]
 }
