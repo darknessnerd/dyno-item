@@ -231,7 +231,8 @@ ComponentWithAutoSize.argTypes = {
 };
 ComponentWithAutoSize.args = {
   template: '<DynoItem w="auto" h="auto">'
-    + '<p style="min-width: 300px">Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    + '<p style="min-width: 300px">'
+    + 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
     + 'Cupiditate aperiam explicabo animi expedita unde perspiciatis quae, consequatur'
     + 'consequuntur libero assumenda, accusantium repellat illo asperiores molestiae ea '
     + 'quasi distinctio, aspernatur saepe!'
