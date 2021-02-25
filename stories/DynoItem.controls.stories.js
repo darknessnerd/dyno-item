@@ -7,9 +7,6 @@ export default {
   decorators: [() => (
     { template: '<div style="flex-grow: 1; border: 1px solid black;"><story/></div>' }
   )],
-  parameters: {
-    jest: ['DynoItem.controls.spec.js'],
-  },
 };
 
 const Template = (args) => ({
@@ -19,22 +16,7 @@ const Template = (args) => ({
   setup() {
     return { args };
   },
-  // And then the `args` are bound to your component with `v-bind="args"`
-  template: `<DynoItem
-                  :active="args.active"
-                  :draggable="args.draggable"
-                  :resizable="args.resizable"
-                  :disableUserSelect="args.disableUserSelect"
-                  :preventDeactivation="args.preventDeactivation"
-                  @activated="args.activated"
-                  @deactivated="args.deactivated"
-                  :enable-native-drag="args.enableNativeDrag"
-                  @resizing="args.resizing"
-                  @resize-stop="args['resize-stop']"
-                  @drag-stop="args['drag-stop']"
-                  @dragging="args.dragging">${
-  args.content
-  }</DynoItem>`,
+  template: args.template,
 });
 
 export const Active = Template.bind({});
@@ -43,15 +25,21 @@ Active.argTypes = {
   ...{ active: { control: { type: 'boolean' } } },
   activated: { action: 'activated' },
   deactivated: { action: 'deactivated' },
-  content: {
-    table: { disable: true },
-  },
 };
 Active.args = {
+  // And then the `args` are bound to your component with `v-bind="args"`
+  template: '<DynoItem'
+    + ' :active="args.active"'
+    + ' :resizable="args.resizable"'
+    + ' @activated="args.activated"'
+    + ' @deactivated="args.deactivated">'
+    + ' <p>Change the active state from outside the component by providing the <b>:active</b> prop.</p>'
+    + '<br/>'
+    + 'Event emitted:'
+    + '<ul><li><b>@activated</b></li> <li><b>@deactivated</b></li></ul>'
+    + '</DynoItem>',
   active: false,
   resizable: false,
-  content: '<p>Change the active state from outside the component by providing the <b>:active</b> prop.</p><br/>'
-    + 'Event emitted:<ul><li><b>@activated</b></li> <li><b>@deactivated</b></li></ul>',
 };
 
 export const Resizable = Template.bind({});
@@ -69,14 +57,23 @@ Resizable.argTypes = {
 Resizable.args = {
   draggable: false,
   resizable: true,
-  content: '<p>Change the Resizable state from outside the component by providing the <b>:resizable</b> prop.</p>'
-    + '<br/>'
-    + 'Event emitted:<ul>'
-    + '<li><b>@activated</b></li>'
-    + '<li><b>@deactivated</b></li>'
-    + '<li><b>@resizing</b></li>'
-    + '<li><b>@resize-stop</b></li>'
-    + '</ul>',
+  template: '<DynoItem'
+    + ' :draggable="args.draggable"'
+    + ' :resizable="args.resizable"'
+    + ' @activated="args.activated"'
+    + ' @deactivated="args.deactivated"'
+    + ' @resizing="args.resizing"'
+    + ' @resize-stop="args[\'resize-stop\']">'
+            + '<p>Change the Resizable state from outside the component by providing the'
+            + ' <b>:resizable</b> prop.</p>'
+            + '<br/>'
+            + 'Event emitted:<ul>'
+            + '<li><b>@activated</b></li>'
+            + '<li><b>@deactivated</b></li>'
+            + '<li><b>@resizing</b></li>'
+            + '<li><b>@resize-stop</b></li>'
+            + '</ul>'
+    + '</DynoItem>',
 };
 
 export const Draggable = Template.bind({});
@@ -94,14 +91,25 @@ Draggable.argTypes = {
 Draggable.args = {
   draggable: true,
   resizable: false,
-  content: '<p>Change the Draggable state from outside the component by providing the <b>:draggable</b> prop.</p>'
-    + '<br/>'
-    + 'Event emitted:<ul>'
-    + '<li><b>@activated</b></li>'
-    + '<li><b>@deactivated</b></li>'
-    + '<li><b>@dragging</b></li>'
-    + '<li><b>@drag-stop</b></li>'
-    + '</ul>',
+  template: '<DynoItem'
+
+    + ' :draggable="args.draggable"'
+    + ' :resizable="args.resizable"'
+
+    + ' @activated="args.activated"'
+    + ' @deactivated="args.deactivated"'
+
+    + ' @drag-stop="args[\'drag-stop\']"'
+    + ' @dragging="args.dragging">'
+        + '<p>Change the Draggable state from outside the component by providing the <b>:draggable</b> prop.</p>'
+        + '<br/>'
+        + 'Event emitted:<ul>'
+        + '<li><b>@activated</b></li>'
+        + '<li><b>@deactivated</b></li>'
+        + '<li><b>@dragging</b></li>'
+        + '<li><b>@drag-stop</b></li>'
+        + '</ul>'
+    + '</DynoItem>',
 };
 
 export const UserSelect = Template.bind({});
@@ -109,48 +117,49 @@ UserSelect.argTypes = {
   ...controls,
   ...{ disableUserSelect: { control: { type: 'boolean' } } },
   ...{ draggable: { control: { type: 'boolean' } } },
-  content: {
-    table: { disable: true },
-  },
 };
 UserSelect.args = {
   disableUserSelect: true,
   draggable: true,
-  content: '<p>'
+  template: '<DynoItem'
+    + ' :draggable="args.draggable"'
+    + ' :disableUserSelect="args.disableUserSelect">'
+    + '<p>'
     + 'Disable user select when dragging with the prop: <b>:disableUserSelect</b>.'
-    + '</p>',
+    + '</p>'
+    + '</DynoItem>',
 };
 
 export const PreventDeactivation = Template.bind({});
 PreventDeactivation.argTypes = {
   ...controls,
   ...{ preventDeactivation: { control: { type: 'boolean' } } },
-  content: {
-    table: { disable: true },
-  },
 };
 PreventDeactivation.args = {
   preventDeactivation: true,
-  content: '<p>'
+  template: '<DynoItem'
+    + ' :preventDeactivation="args.preventDeactivation">'
+    + '<p>'
     + 'Prevent deactivation when the prop <b>:preventDeactivation</b> is set to true.'
-    + '</p>',
+    + '</p>'
+    + '</DynoItem>',
 };
 
 export const EnableNativeDrag = Template.bind({});
 EnableNativeDrag.argTypes = {
   ...controls,
   ...{ enableNativeDrag: { control: { type: 'boolean' } } },
-  content: {
-    table: { disable: true },
-  },
 };
 EnableNativeDrag.args = {
   enableNativeDrag: true,
   disableUserSelect: false,
-  content: '<p>EnableNativeDrag '
-    + '<b>:enableNativeDrag</b> '
-    + 'is set to true.'
-    + '<br>'
-    + '<img src="./abduction.svg" style="height: 48px; width: 48px;" />'
-    + '</p>',
+  template: '<DynoItem'
+    + ' :enable-native-drag="args.enableNativeDrag">'
+        + '<p>EnableNativeDrag '
+        + '<b>:enableNativeDrag</b> '
+        + 'is set to true.'
+        + '<br>'
+        + '<img src="./abduction.svg" style="height: 48px; width: 48px;" />'
+        + '</p>'
+    + '</DynoItem>',
 };

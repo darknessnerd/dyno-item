@@ -52,11 +52,11 @@ describe('DynoItem.parent.vue', () => {
     expect(document.body.getElementsByClassName('parent-slot').length).toBe(1);
     // Move the element to x: 10px y: 10px
     await triggerDragging(wrapper, true);
-    expect(wrapper.emitted()).toEqual({ activated: [[]], dragging: [[90, 90]] });
+    expect(wrapper.emitted()).toEqual({ activated: [[]], dragging: [[10, 10]] });
     expect(wrapper.vm.style).toStrictEqual({
       ...baseStyle,
       ...{
-        transform: 'translate(90px, 90px)',
+        transform: 'translate(10px, 10px)',
         userSelect: 'none',
         MozUserSelect: 'none',
         MsUserSelect: 'none',

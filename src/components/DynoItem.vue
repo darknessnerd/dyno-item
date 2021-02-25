@@ -17,7 +17,7 @@
       :key="handle"
       :class="[classNameHandle, classNameHandle + '-' + handle]"
       :style="handleStyle"
-      :data-test="handle"
+      :data-test="'handle-'+handle"
       @mousedown.stop.prevent="handleDown(handle, $event)"
       @touchstart.stop.prevent="handleTouchDown(handle, $event)">
       <slot :name="handle"></slot>
@@ -42,6 +42,8 @@ import {
   getBoundSize,
   getParentSize,
 } from '@/utils/dom';
+import classProps from '@/components/classProps';
+import transformProps from '@/components/transformProps';
 
 const userSelectNone = {
   userSelect: 'none',
@@ -68,6 +70,9 @@ export default {
     'resize-stop',
   ],
   props: {
+    // custom class params
+    ...classProps,
+    ...transformProps,
     // Component controls
     /**
      * Active state for the component, this props when change emit activated and deactivated event
@@ -118,49 +123,17 @@ export default {
       type: Boolean,
       default: true,
     },
-    lockAspectRatio: {
-      type: Boolean,
-      default: false,
-    },
-    className: {
-      type: String,
-      default: 'vdr',
-    },
-    classNameDraggable: {
-      type: String,
-      default: 'draggable',
-    },
-    classNameActive: {
-      type: String,
-      default: 'active',
-    },
-    classNameDragging: {
-      type: String,
-      default: 'dragging',
-    },
-    classNameResizing: {
-      type: String,
-      default: 'resizing',
-    },
-    dragHandle: {
+    dragCancel: {
       type: String,
       default: null,
     },
-    classNameHandle: {
-      type: String,
-      default: 'handle',
-    },
-    dragCancel: {
+    dragHandle: {
       type: String,
       default: null,
     },
     onResizeStart: {
       type: Function,
       default: () => true,
-    },
-    classNameResizable: {
-      type: String,
-      default: 'resizable',
     },
     onResize: {
       type: Function,
@@ -184,59 +157,6 @@ export default {
       type: Function,
       default: () => true,
     },
-    w: {
-      type: [Number, String],
-      default: 200,
-      validator: (val) => {
-        if (typeof val === 'number') {
-          return val > 0;
-        }
-        return val === 'auto';
-      },
-    },
-    h: {
-      type: [Number, String],
-      default: 200,
-      validator: (val) => {
-        if (typeof val === 'number') {
-          return val > 0;
-        }
-        return val === 'auto';
-      },
-    },
-    minWidth: {
-      type: Number,
-      default: 0,
-      validator: (val) => val >= 0,
-    },
-    minHeight: {
-      type: Number,
-      default: 0,
-      validator: (val) => val >= 0,
-    },
-    maxWidth: {
-      type: Number,
-      default: null,
-      validator: (val) => val >= 0,
-    },
-    maxHeight: {
-      type: Number,
-      default: null,
-      validator: (val) => val >= 0,
-    },
-    x: {
-      type: Number,
-      default: 0,
-    },
-    y: {
-      type: Number,
-      default: 0,
-    },
-    z: {
-      type: [String, Number],
-      default: 'auto',
-      validator: (val) => (typeof val === 'string' ? val === 'auto' : val >= 0),
-    },
     handles: {
       type: Array,
       default: () => ['tl', 'tm', 'tr', 'mr', 'br', 'bm', 'bl', 'ml'],
@@ -244,11 +164,6 @@ export default {
         const s = new Set(['tl', 'tm', 'tr', 'mr', 'br', 'bm', 'bl', 'ml']);
         return new Set(val.filter((h) => s.has(h))).size === val.length;
       },
-    },
-    axis: {
-      type: String,
-      default: 'both',
-      validator: (val) => ['x', 'y', 'both'].includes(val),
     },
     grid: {
       type: Array,
@@ -371,8 +286,8 @@ export default {
     const checkParentSize = () => {
       if (props.parent) {
         [parentWidth.value, parentHeight.value] = getParentSize(root.value, props.parent);
-        domRect.left = parentWidth.value - domRect.width - domRect.right;
-        domRect.top = parentHeight.value - domRect.height - domRect.bottom;
+        domRect.right = parentWidth.value - domRect.width - domRect.left;
+        domRect.bottom = parentHeight.value - domRect.height - domRect.top;
       }
     };
     onMounted(() => {

@@ -28,6 +28,16 @@ const triggerMouseMove = ({ x, y }) => {
   event.pageY = y;
   document.documentElement.dispatchEvent(event);
 };
+const triggerResizing = async (wrapper, expectResizing, handleName, { x, y }) => {
+  await wrapper.find(`[data-test="${handleName}"]`).trigger('mousedown', {
+    button: 0,
+    pageX: 0,
+    pageY: 0,
+  });
+  triggerMouseMove({ x, y });
+  // eslint-disable-next-line no-undef
+  expect(wrapper.vm.resizing).toBe(expectResizing);
+};
 const triggerDragging = async (wrapper, expectDragging) => {
   await wrapper.find('[data-test="root"]').trigger('mousedown', {
     button: 0,
@@ -41,5 +51,7 @@ const triggerDragging = async (wrapper, expectDragging) => {
 export {
   baseStyle,
   triggerDragging,
-  triggerMouseUp, triggerMouseDownOnDocument, triggerOnDragStart, triggerMouseMove,
+  triggerMouseUp,
+  triggerMouseDownOnDocument, triggerOnDragStart, triggerMouseMove,
+  triggerResizing,
 };

@@ -6,6 +6,7 @@ import {
   triggerMouseDownOnDocument,
   triggerMouseUp,
   triggerOnDragStart,
+  triggerResizing,
 } from './commons';
 
 describe('DynoItem.controls.vue', () => {
@@ -30,6 +31,27 @@ describe('DynoItem.controls.vue', () => {
       ...baseStyle,
     });
     await triggerMouseUp(wrapper);
+  });
+  it('resize when resize prop is true', async () => {
+    await wrapper.setProps({ resize: true });
+    await triggerResizing(wrapper, true, 'handle-br', { x: 10, y: 10 });
+    expect(wrapper.emitted()).toEqual({ resizing: [[0, 0, 210, 210]] });
+    expect(wrapper.vm.style).toStrictEqual({
+      ...baseStyle,
+      ...{
+        userSelect: 'auto',
+        MozUserSelect: 'auto',
+        MsUserSelect: 'auto',
+        WebkitUserSelect: 'auto',
+        height: '210px',
+        width: '210px',
+      },
+    });
+    await triggerMouseUp(wrapper);
+    expect(wrapper.emitted()).toEqual({
+      resizing: [[0, 0, 210, 210]],
+      'resize-stop': [[0, 0, 210, 210]],
+    });
   });
   it('move when draggable prop is true', async () => {
     await wrapper.setProps({ draggable: true });

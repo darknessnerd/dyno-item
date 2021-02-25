@@ -110,12 +110,10 @@ export default function useResize({
     resetBoundsAndMouseState();
     // eslint-disable-next-line no-param-reassign
     resizeEnable.value = false;
-    if (resizing.value) {
-      // eslint-disable-next-line no-param-reassign
-      resizing.value = false;
-      context.emit('resize-stop', domRect.left, domRect.top, domRect.width, domRect.height);
-      removeEvent(document.documentElement, eventsFor.value.move, handleResize);
-    }
+    // eslint-disable-next-line no-param-reassign
+    resizing.value = false;
+    context.emit('resize-stop', domRect.left, domRect.top, domRect.width, domRect.height);
+    removeEvent(document.documentElement, eventsFor.value.move, handleResize);
   };
   const handleDown = (handle, e) => {
     // Button 0 is the main button: Main button pressed,
