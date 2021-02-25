@@ -9,9 +9,9 @@
 
 > Vue3 Library Component for draggable and resizable items.
 
-[Features Live Demo ](https://darknessnerd.github.io/dyno-item/index.html)
+:bomb: [Features Live Demo ](https://darknessnerd.github.io/dyno-item/index.html)
 
-### Features
+### :rocket: Features
 
 * No dependencies
 * Use draggable, resizable or both
