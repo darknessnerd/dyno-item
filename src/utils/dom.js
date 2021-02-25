@@ -77,8 +77,8 @@ export const getBoundSize = (children) => {
   let w = 0;
   // eslint-disable-next-line prefer-destructuring
   Array.from(children).forEach((child) => {
-    w = Math.max(w, child.offsetWidth);
-    h += child.offsetHeight;
+    w = Math.max(w, child.clientWidth);
+    h += child.clientHeight;
   });
   return [
     parseFloat(w),

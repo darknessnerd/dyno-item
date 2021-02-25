@@ -1,4 +1,3 @@
-//DISABLE ALL PADDIN AND MARGINS
 *{
   margin: 0;
   padding: 0;
@@ -21,11 +20,11 @@ html, body, #root, #root > div {
 }
 
 .my-dragging-class {
-  background-color: transparent;
+  background-color: greenyellow;
 }
 
 .my-resizing-class {
-  background-color: transparent;
+  background-color: limegreen;
 }
 
 
@@ -103,8 +102,8 @@ html, body, #root, #root > div {
   cursor: se-resize;
 }
 
-.my-handle-class-rm:hover,
-.my-handle-class-lm:hover,
+.my-handle-class-mr:hover,
+.my-handle-class-ml:hover,
 .my-handle-class-tm:hover,
 .my-handle-class-bm:hover,
 .my-handle-class-tl:hover,
@@ -114,3 +113,4 @@ html, body, #root, #root > div {
   background-color: red;
   transform: scale(1.4);
 }
+

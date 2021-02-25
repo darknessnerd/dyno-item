@@ -224,3 +224,19 @@ Handles.args = {
     + '<p>Enable/disable handles.</p>'
     + '</DynoItem>',
 };
+
+export const ComponentWithAutoSize = Template.bind({});
+ComponentWithAutoSize.argTypes = {
+  ...controls,
+};
+ComponentWithAutoSize.args = {
+  template: '<DynoItem w="auto" h="auto">'
+    + '<p style="min-width: 300px">Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    + 'Cupiditate aperiam explicabo animi expedita unde perspiciatis quae, consequatur'
+    + 'consequuntur libero assumenda, accusantium repellat illo asperiores molestiae ea '
+    + 'quasi distinctio, aspernatur saepe!'
+    + 'consequuntur libero assumenda, accusantium repellat illo asperiores molestiae ea '
+    + 'quasi distinctio, aspernatur saepe!'
+    + '</p>'
+    + '</DynoItem>',
+};

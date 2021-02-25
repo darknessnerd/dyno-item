@@ -1,19 +1,19 @@
 import DynoItem from '@/components/DynoItem.vue';
 import controls from './control';
-import './assets/custom.css';
 
 export default {
-  title: 'DynoItem/parent',
+  title: 'DynoItem/grid',
   component: DynoItem,
   argTypes: {
     ...controls,
-    parent: { control: { type: 'boolean' } },
-    className: {
-      table: { disable: true },
-    },
   },
   decorators: [() => (
-    { template: '<div style="flex-grow: 1; border: 1px solid black;"><story/></div>' }
+    {
+      template: '<div style="flex-grow: 1; border: 1px solid black; '
+        + 'background: linear-gradient(-90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px) 0% 0% / 40px 40px, linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px) 0% 0% / 40px 40px;">'
+        + '<story/>'
+        + '</div>',
+    }
   )],
 };
 
@@ -25,12 +25,10 @@ const Template = (args) => ({
     return { args };
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<DynoItem :parent="args.parent" >'
-    + '<div>You cannot move me or resize me outside my parent</div>'
+  template: '<DynoItem :grid="[40,40]" >'
+    + '<div>grid 40x40</div>'
     + '</DynoItem>',
 });
 
-export const ParentLimit = Template.bind({});
-ParentLimit.args = {
-  parent: true,
-};
+export const Grid40x40 = Template.bind({});
+Grid40x40.args = {};
