@@ -3,7 +3,10 @@
 > Vue3 Library Component for draggable and resizable items.
 
 [![Build Status](https://www.travis-ci.com/darknessnerd/dyno-item.svg?branch=main)](https://www.travis-ci.com/darknessnerd/dyno-item)
-
+![NPM Downloads](https://img.shields.io/npm/dw/dyno-item)
+![NPM License](https://img.shields.io/npm/l/dyno-item)
+![NPM Version](https://img.shields.io/npm/v/dyno-item)
+![npm collaborators](https://img.shields.io/npm/collaborators/dyno-item)
 ### Features
 
 * No dependencies
