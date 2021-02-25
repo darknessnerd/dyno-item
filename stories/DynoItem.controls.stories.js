@@ -163,3 +163,46 @@ EnableNativeDrag.args = {
         + '</p>'
     + '</DynoItem>',
 };
+
+export const ItemWithDragHandle = Template.bind({});
+ItemWithDragHandle.argTypes = {
+  ...controls,
+};
+ItemWithDragHandle.args = {
+  template: '<DynoItem :drag-handle="\'.drag-handle\'">'
+    + 'An item, that can be dragged only through a handle, '
+    + 'specified by the prop drag-handle and'
+    + ' a valid CSS selector.'
+    + '<div class="drag-handle">Drag Only Here</div>'
+    + '</DynoItem>',
+};
+
+export const ItemWithDragCancel = Template.bind({});
+ItemWithDragCancel.argTypes = {
+  ...controls,
+};
+ItemWithDragCancel.args = {
+  template: '<DynoItem :drag-cancel="\'.drag-cancel\'">'
+    + 'An item, that cannot be dragged through a handle, '
+    + 'specified by the prop drag-cancel and'
+    + 'a valid CSS selector.'
+    + '<div class="drag-cancel">Cannot drag here</div>'
+    + '</DynoItem>',
+};
+
+export const Axis = Template.bind({});
+Axis.argTypes = {
+  ...controls,
+  axis: {
+    control: {
+      type: 'select',
+      options: ['x', 'y', 'both'],
+    },
+  },
+};
+Axis.args = {
+  template: '<DynoItem :axis="args.axis">'
+    + 'A basic component, with axis prop to control on which axis it is draggable.'
+    + ' Suitable values are <b>x, y or both</b>.'
+    + '</DynoItem>',
+};

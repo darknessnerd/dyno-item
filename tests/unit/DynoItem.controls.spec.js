@@ -129,4 +129,56 @@ describe('DynoItem.controls.vue', () => {
       activated: [[]], deactivated: [[]], 'drag-stop': [[10, 10]], dragging: [[10, 10]],
     });
   });
+
+  it('move vertically when axis is set to y', async () => {
+    wrapper = shallowMount(DynoItem, {
+      props: {
+        axis: 'y',
+      },
+    });
+    await triggerOnDragStart(wrapper);
+    await triggerDragging(wrapper, true);
+    // Move with x: 10 and y: 10
+    await triggerMouseUp(wrapper);
+    expect(wrapper.vm.style).toStrictEqual({
+      ...baseStyle,
+      ...{
+        transform: 'translate(0px, 10px)',
+      },
+    });
+  });
+  it('move horizontally when axis is set to x', async () => {
+    wrapper = shallowMount(DynoItem, {
+      props: {
+        axis: 'x',
+      },
+    });
+    await triggerOnDragStart(wrapper);
+    await triggerDragging(wrapper, true);
+    // Move with x: 10 and y: 10
+    await triggerMouseUp(wrapper);
+    expect(wrapper.vm.style).toStrictEqual({
+      ...baseStyle,
+      ...{
+        transform: 'translate(10px, 0px)',
+      },
+    });
+  });
+  it('move horizontally and vertically when axis is set to both', async () => {
+    wrapper = shallowMount(DynoItem, {
+      props: {
+        axis: 'both',
+      },
+    });
+    await triggerOnDragStart(wrapper);
+    await triggerDragging(wrapper, true);
+    // Move with x: 10 and y: 10
+    await triggerMouseUp(wrapper);
+    expect(wrapper.vm.style).toStrictEqual({
+      ...baseStyle,
+      ...{
+        transform: 'translate(10px, 10px)',
+      },
+    });
+  });
 });

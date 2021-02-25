@@ -1,0 +1,194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DynoItem.drag.vue render slot correctly 1`] = `
+VueWrapper {
+  "__app": null,
+  "__setProps": undefined,
+  "componentVM": Object {
+    "active": false,
+    "actualHandles": Array [
+      "tl",
+      "tm",
+      "tr",
+      "mr",
+      "br",
+      "bm",
+      "bl",
+      "ml",
+    ],
+    "aspectFactor": 1,
+    "axis": "both",
+    "className": "vdr",
+    "classNameActive": "active",
+    "classNameDraggable": "draggable",
+    "classNameDragging": "dragging",
+    "classNameHandle": "handle",
+    "classNameResizable": "resizable",
+    "classNameResizing": "resizing",
+    "content": <div
+      style="position: absolute; overflow: auto; user-select: auto;"
+    >
+      
+      <div
+        data-test="drag"
+      >
+        drag element
+      </div>
+      
+    </div>,
+    "contentStyle": Object {
+      "MozUserSelect": "auto",
+      "MsUserSelect": "auto",
+      "WebkitUserSelect": "auto",
+      "height": "200px",
+      "overflow": "auto",
+      "position": "absolute",
+      "userSelect": "auto",
+      "width": "200px",
+    },
+    "disableUserSelect": true,
+    "dragCancel": null,
+    "dragHandle": null,
+    "draggable": true,
+    "dragging": false,
+    "elementMouseDown": [Function],
+    "elementTouchDown": [Function],
+    "enableNativeDrag": false,
+    "enabled": false,
+    "grid": Array [
+      1,
+      1,
+    ],
+    "h": 200,
+    "handleDown": [Function],
+    "handleStyle": Object {
+      "display": "none",
+    },
+    "handleTouchDown": [Function],
+    "handles": Array [
+      "tl",
+      "tm",
+      "tr",
+      "mr",
+      "br",
+      "bm",
+      "bl",
+      "ml",
+    ],
+    "lockAspectRatio": false,
+    "maxHeight": null,
+    "maxWidth": null,
+    "minHeight": 0,
+    "minWidth": 0,
+    "onDrag": [Function],
+    "onDragStart": [Function],
+    "onResize": [Function],
+    "onResizeStart": [Function],
+    "parent": false,
+    "preventDeactivation": false,
+    "resizable": true,
+    "resizing": false,
+    "root": <div
+      class="draggable resizable vdr"
+      data-test="root"
+      style="transform: translate(0px, 0px); z-index: auto; position: absolute; user-select: auto;"
+    >
+      
+      <div
+        class="handle handle-tl"
+        data-test="handle-tl"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      <div
+        class="handle handle-tm"
+        data-test="handle-tm"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      <div
+        class="handle handle-tr"
+        data-test="handle-tr"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      <div
+        class="handle handle-mr"
+        data-test="handle-mr"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      <div
+        class="handle handle-br"
+        data-test="handle-br"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      <div
+        class="handle handle-bm"
+        data-test="handle-bm"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      <div
+        class="handle handle-bl"
+        data-test="handle-bl"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      <div
+        class="handle handle-ml"
+        data-test="handle-ml"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      
+      <div
+        style="position: absolute; overflow: auto; user-select: auto;"
+      >
+        
+        <div
+          data-test="drag"
+        >
+          drag element
+        </div>
+        
+      </div>
+    </div>,
+    "scale": 1,
+    "style": Object {
+      "-webkit-transition": "transform 0s ease-in-out",
+      "MozUserSelect": "auto",
+      "MsUserSelect": "auto",
+      "WebkitUserSelect": "auto",
+      "height": "200px",
+      "position": "absolute",
+      "transform": "translate(0px, 0px)",
+      "userSelect": "auto",
+      "width": "200px",
+      "zIndex": "auto",
+    },
+    "w": 200,
+    "x": 0,
+    "y": 0,
+    "z": "auto",
+  },
+  "rootVM": Object {},
+}
+`;
