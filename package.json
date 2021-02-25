@@ -83,5 +83,6 @@
     "composition api",
     "dragabble",
     "resizable"
-  ]
+  ],
+  "description": "Vue3 Library Component for draggable and resizable items."
 }
