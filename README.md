@@ -1,32 +1,64 @@
 # dyno-item
+
+> Vue3 Library Component for draggable and resizable items.
+
 [![Build Status](https://www.travis-ci.com/darknessnerd/dyno-item.svg?branch=main)](https://www.travis-ci.com/darknessnerd/dyno-item)
-## Project setup
-```
-npm install
+
+### Features
+
+* No dependencies
+* Use draggable, resizable or both
+* Limit size and movement to parent element
+* Snap element to custom grid
+* Limit drag to vertical or horizontal axis
+* Maintain aspect ratio
+* Touch enabled
+* Custom styling
+* Define handles for resizing
+* Provide your own markup for handles
+
+## Install and basic usage
+
+```bash
+$ npm install --save dyno-item
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+
+Register the component
+
+```js
+import DynoItemPlugin from 'dyno-item';
+
+// optionally import default styles
+import 'dyno-item/dist/dyno-item.common.css';
+
+createApp(App)
+  .use(DynoItemPlugin)
+  .mount('#app');
 ```
 
-### Compiles and minifies library  for production
-```
-npm run build
-```
+Now your component inside a code:
 
-### Run your unit tests
-```
-npm run test:unit
-```
+```vue
+<template>
+  <div>
+    <DynoItem><p>I'm a draggable and resizable item</p></DynoItem>
+  </div>
+</template>
 
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
+<script>
+import { defineComponent } from 'vue';
+import { DynoItem } from 'dyno-item';
 
-### Lints and fixes files
-```
-npm run lint
-```
+export default defineComponent({
+  components: {
+    DynoItem,
+  },
+  name: 'App',
+  setup() {
+    return {};
+  },
+});
+</script>
 
+```

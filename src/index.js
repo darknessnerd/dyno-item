@@ -1,7 +1,7 @@
 import '@/assets/item.css';
 import DynoItem from '@/components/DynoItem.vue';
 
-const ItemPlugin = () => ({
+const DynoItemPlugin = () => ({
   install(Vue) {
     const isDuplicateComponent = Vue.options.components[DynoItem.name];
 
@@ -15,4 +15,4 @@ const ItemPlugin = () => ({
   },
 });
 
-export { ItemPlugin as default, DynoItem };
+export { DynoItemPlugin as default, DynoItem };
