@@ -14,7 +14,7 @@
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -s ./stories/assets -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o docs-build -s ./stories/assets",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },
   "dependencies": {
