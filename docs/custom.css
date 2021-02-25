@@ -1,0 +1,116 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root, #root > div {
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.my-class {
+  background-color: whitesmoke;
+  border: 1px solid black;
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+}
+
+.my-dragging-class {
+  background-color: greenyellow;
+}
+
+.my-resizing-class {
+  background-color: limegreen;
+}
+
+
+.my-active-class {
+  border: 1px solid black;
+  -webkit-box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.75);
+  box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.75);
+}
+
+
+.my-handle-class {
+  position: absolute;
+  background-color: whitesmoke;
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+  box-model: border-box;
+  -webkit-transition: all 300ms linear;
+  -ms-transition: all 300ms linear;
+  transition: all 300ms linear;
+  z-index: 999;
+}
+
+.my-handle-class-tl {
+  top: -6px;
+  left: -6px;
+  cursor: nw-resize;
+}
+
+.my-handle-class-tm {
+  top: -6px;
+  left: 50%;
+  margin-left: -6px;
+  cursor: n-resize;
+}
+
+.my-handle-class-tr {
+  top: -6px;
+  right: -6px;
+  cursor: ne-resize;
+}
+
+.my-handle-class-ml {
+  top: 50%;
+  margin-top: -6px;
+  left: -6px;
+  cursor: w-resize;
+}
+
+.my-handle-class-mr {
+  top: 50%;
+  margin-top: -6px;
+  right: -6px;
+  cursor: e-resize;
+}
+
+.my-handle-class-bl {
+  bottom: -6px;
+  left: -6px;
+  cursor: sw-resize;
+}
+
+.my-handle-class-bm {
+  bottom: -6px;
+  left: 50%;
+  margin-left: -6px;
+  cursor: s-resize;
+}
+
+.my-handle-class-br {
+  bottom: -6px;
+  right: -6px;
+  cursor: se-resize;
+}
+
+.my-handle-class-mr:hover,
+.my-handle-class-ml:hover,
+.my-handle-class-tm:hover,
+.my-handle-class-bm:hover,
+.my-handle-class-tl:hover,
+.my-handle-class-tr:hover,
+.my-handle-class-bl:hover,
+.my-handle-class-br:hover {
+  background-color: red;
+  transform: scale(1.4);
+}
+
