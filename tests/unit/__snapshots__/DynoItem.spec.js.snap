@@ -146,7 +146,7 @@ VueWrapper {
     "provide": [Function],
     "unmount": [Function],
     "use": [Function],
-    "version": "3.0.5",
+    "version": "3.0.6",
   },
   "__setProps": [Function],
   "componentVM": Object {

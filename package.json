@@ -3,6 +3,26 @@
   "version": "0.0.5",
   "private": false,
   "author": "Brunino Criniti <crinitib@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darknessnerd/dyno-item.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darknessnerd/dyno-item/issues"
+  },
+  "homepage": "https://github.com/darknessnerd/dyno-item",
+  "keywords": [
+    "vue3",
+    "grid",
+    "parent",
+    "dynamic components",
+    "component",
+    "composition api",
+    "dragabble",
+    "resizable"
+  ],
+  "description": "Vue3 Library Component for draggable and resizable items.",
   "main": "dist/dyno-item.common.js",
   "unpkg": "dist/dyno-item.umd.min.js",
   "files": [
@@ -17,18 +37,16 @@
     "build-storybook": "build-storybook -o docs-build -s ./stories/assets",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^3.0.0"
-  },
   "peerDependencies": {
-    "vue": "^3.0.0"
+    "vue": "^3.0.5"
+  },
+  "engines": {
+    "node": ">=12"
   },
   "devDependencies": {
     "@babel/core": "^7.12.17",
     "@rollup/plugin-alias": "^3.1.2",
     "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-buble": "^0.21.3",
     "@rollup/plugin-commonjs": "^17.1.0",
     "@rollup/plugin-node-resolve": "^11.2.0",
     "@rollup/plugin-replace": "^2.3.4",
@@ -55,6 +73,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^7.0.0-0",
     "geckodriver": "^1.20.0",
+    "minimist": "^1.2.5",
     "node-sass": "^4.12.0",
     "rollup": "^2.39.0",
     "rollup-plugin-scss": "^2.6.1",
@@ -62,27 +81,8 @@
     "rollup-plugin-vue": "^6.0.0",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
+    "vue": "^3.0.5",
     "vue-jest": "^5.0.0-0",
     "vue-loader": "^16.1.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/darknessnerd/dyno-item.git"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/darknessnerd/dyno-item/issues"
-  },
-  "homepage": "https://github.com/darknessnerd/dyno-item",
-  "keywords": [
-    "vue3",
-    "grid",
-    "parent",
-    "dynamic components",
-    "component",
-    "composition api",
-    "dragabble",
-    "resizable"
-  ],
-  "description": "Vue3 Library Component for draggable and resizable items."
+  }
 }

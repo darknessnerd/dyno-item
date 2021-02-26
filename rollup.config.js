@@ -10,11 +10,13 @@ import path from 'path';
 import pkg from './package.json';
 
 const projectRoot = path.resolve(__dirname, '.');
+
 const banner = `/**
  * dyno-item-wrapper ${pkg.version}
  * (c) ${new Date().getFullYear()}
  * @license MIT
  */`;
+
 export default {
   // this is the file containing all our exported components/functions
   input: 'src/index.js',
@@ -64,10 +66,7 @@ export default {
     babel({
       exclude: 'node_modules/**',
       extensions: ['.js', '.jsx', '.vue'],
-      babelHelpers: 'runtime',
-      presets: [
-        '@vue/cli-plugin-babel/preset',
-      ],
+      babelHelpers: 'bundled',
     }),
     commonjs(), // Convert CommonJS modules to ES6, so they can be included in a Rollup bundle
     nodeResolve(),
