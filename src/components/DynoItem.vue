@@ -30,7 +30,7 @@
 <script>
 
 import {
-  ref, computed, onMounted, onBeforeUnmount, watch, reactive,
+  ref, computed, onMounted, onBeforeUnmount, watch, reactive, defineComponent,
 } from 'vue';
 import events from '@/utils/events';
 import useDrag from '@/hooks/drag';
@@ -58,7 +58,7 @@ const userSelectAuto = {
   MsUserSelect: 'auto',
 };
 
-export default {
+export default /* #__PURE__ */defineComponent({
   name: 'dyno-item',
   emits: [
     'activated',
@@ -373,5 +373,5 @@ export default {
       aspectFactor,
     };
   },
-};
+});
 </script>

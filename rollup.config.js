@@ -66,7 +66,10 @@ export default {
     babel({
       exclude: 'node_modules/**',
       extensions: ['.js', '.jsx', '.vue'],
-      babelHelpers: 'bundled',
+      babelHelpers: 'runtime',
+      presets: [
+        '@babel/preset-env',
+      ],
     }),
     commonjs(), // Convert CommonJS modules to ES6, so they can be included in a Rollup bundle
     nodeResolve(),
