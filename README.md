@@ -6,13 +6,13 @@
 ![NPM Version](https://img.shields.io/npm/v/dyno-item)
 ![npm collaborators](https://img.shields.io/npm/collaborators/dyno-item)
 
+![resize](https://raw.githubusercontent.com/darknessnerd/dyno-item/71f2ae9aac4a1d876494f5d2e06142173b70b213/stories/assets/resize-icon.svg)
+![draggable](https://raw.githubusercontent.com/darknessnerd/dyno-item/71f2ae9aac4a1d876494f5d2e06142173b70b213/stories/assets/drag-icon.svg)
+:bomb: [Features Live Demo ](https://darknessnerd.github.io/dyno-item/index.html)
 
 > Vue3 Library Component for draggable and resizable items.
 
-![resize](https://raw.githubusercontent.com/darknessnerd/dyno-item/71f2ae9aac4a1d876494f5d2e06142173b70b213/stories/assets/resize-icon.svg)
-![draggable](https://raw.githubusercontent.com/darknessnerd/dyno-item/71f2ae9aac4a1d876494f5d2e06142173b70b213/stories/assets/drag-icon.svg)
-
-:bomb: [Features Live Demo ](https://darknessnerd.github.io/dyno-item/index.html)
+![demo](https://github.com/darknessnerd/dyno-item/blob/main/stories/assets/demo.gif?raw=true)
 
 ### :rocket: Features
 
