@@ -18,5 +18,5 @@ module.exports = {
     '!<rootDir>/src/plugins/**',
     '!<rootDir>/tests/unit/**',
   ],
-  coverageReporters: ['lcov', 'text', 'text-summary'],
+  coverageReporters: ['lcov', 'text', 'text-summary', 'json-summary'],
 };

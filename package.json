@@ -31,6 +31,7 @@
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "test:unit": "vue-cli-service test:unit --runInBand",
+    "test:badges": "npm run test:unit  && jest-coverage-badges",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -s ./stories/assets -p 6006",
@@ -73,6 +74,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^7.0.0-0",
     "geckodriver": "^1.20.0",
+    "jest-coverage-badges": "^1.1.2",
     "minimist": "^1.2.5",
     "node-sass": "^4.12.0",
     "rollup": "^2.39.0",

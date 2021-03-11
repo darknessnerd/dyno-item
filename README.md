@@ -2,6 +2,7 @@
 
 [![Build Status](https://www.travis-ci.com/darknessnerd/dyno-item.svg?branch=main)](https://www.travis-ci.com/darknessnerd/dyno-item)
 ![NPM Downloads](https://img.shields.io/npm/dw/dyno-item)
+![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/dyno-item)
 ![NPM License](https://img.shields.io/npm/l/dyno-item)
 ![NPM Version](https://img.shields.io/npm/v/dyno-item)
 ![npm collaborators](https://img.shields.io/npm/collaborators/dyno-item)
