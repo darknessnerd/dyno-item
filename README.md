@@ -6,6 +6,8 @@
 ![NPM License](https://img.shields.io/npm/l/dyno-item)
 ![NPM Version](https://img.shields.io/npm/v/dyno-item)
 ![npm collaborators](https://img.shields.io/npm/collaborators/dyno-item)
+![coverage functions](https://raw.githubusercontent.com/darknessnerd/dyno-item/7fa8b29bbb5e7ee5f6db6bb2617603f549db9a3b/coverage/badge-functions.svg)
+![coverage lines](https://raw.githubusercontent.com/darknessnerd/dyno-item/7fa8b29bbb5e7ee5f6db6bb2617603f549db9a3b/coverage/badge-lines.svg)
 
 ![resize](https://raw.githubusercontent.com/darknessnerd/dyno-item/71f2ae9aac4a1d876494f5d2e06142173b70b213/stories/assets/resize-icon.svg)
 ![draggable](https://raw.githubusercontent.com/darknessnerd/dyno-item/71f2ae9aac4a1d876494f5d2e06142173b70b213/stories/assets/drag-icon.svg)
